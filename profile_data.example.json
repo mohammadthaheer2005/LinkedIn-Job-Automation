@@ -1,0 +1,19 @@
+{
+  "full_name": "Your Name",
+  "email": "your_email@example.com",
+  "phone": "1234567890",
+  "resume_path": "",
+  "years_of_experience": 0,
+  "skills": ["Python", "SQL", "Git", "Machine Learning"],
+  "notice_period": "Immediate",
+  "current_location": "Chennai",
+  "work_authorization": "Yes",
+  "requires_sponsorship": "No",
+  "profile_summary": "Aspiring Developer with solid foundation in programming, data handling, and automation.",
+  "additional_answers": {
+    "sponsorship": "No",
+    "work authorization": "Yes",
+    "years of python experience": "0",
+    "years of software development experience": "0"
+  }
+}

@@ -1,0 +1,60 @@
+# ==========================================
+# LinkedIn Job Automation - Git Ignore Rules
+# ==========================================
+
+# 1. Environment & API Keys (CRITICAL: NEVER COMMIT)
+.env
+.env.local
+.env.*.local
+*.env
+
+# 2. Personal & Profile Data
+profile_data.json
+profile_data_custom.json
+sessions/
+*.session
+*.cookies
+
+# 3. Resumes & Uploads (Personal Files)
+uploads/
+resume/
+*.pdf
+*.docx
+*.doc
+
+# 4. Screenshots & Debugging Dumps
+screenshots/
+*.png
+*.jpg
+*.jpeg
+login_debug.html
+*.log
+logs/
+
+# 5. Virtual Environments
+.venv/
+venv/
+env/
+ENV/
+.env/
+
+# 6. Python Bytecode & Cache
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.pytest_cache/
+.coverage
+htmlcov/
+
+# 7. IDE & OS Metadata
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# 8. Temporary scratch files
+scratch/

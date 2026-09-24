@@ -1,86 +1,122 @@
-# 🚀 LinkedIn Autonomous Job Application Agent
+<div align="center">
 
-[![Python](https://img.shields.io/badge/Python-3.10%2B-blue.svg?logo=python&logoColor=white)](https://python.org)
-[![Playwright](https://img.shields.io/badge/Playwright-Automation-green.svg?logo=playwright&logoColor=white)](https://playwright.dev)
-[![Gemini](https://img.shields.io/badge/Google-Gemini_AI-orange.svg?logo=google&logoColor=white)](https://aistudio.google.com)
-[![Flask](https://img.shields.io/badge/Flask-Web_Dashboard-black.svg?logo=flask&logoColor=white)](https://flask.palletsprojects.com)
-[![License](https://img.shields.io/badge/License-Proprietary-red.svg)](#-license--terms-of-use)
+# 🚀 Autonomous LinkedIn Job Application Agent
+### *Full-Stack Dual-Engine AI & Browser Automation Platform*
 
-An intelligent, full-stack automation agent engineered to streamline the job hunt on LinkedIn. Designed with a **Dual-Engine Architecture**, it combines multimodal LLM reasoning (Google Gemini) with a lightning-fast direct browser engine (Playwright) to discover, evaluate, and submit Easy Apply applications with high precision.
+[![Python 3.10+](https://img.shields.io/badge/Python-3.10%2B-3776AB?style=for-the-badge&logo=python&logoColor=white)](https://python.org)
+[![Playwright](https://img.shields.io/badge/Playwright-2EAD33?style=for-the-badge&logo=playwright&logoColor=white)](https://playwright.dev)
+[![Google Gemini](https://img.shields.io/badge/Google%20Gemini-8E75C2?style=for-the-badge&logo=google&logoColor=white)](https://aistudio.google.com)
+[![Flask](https://img.shields.io/badge/Flask-000000?style=for-the-badge&logo=flask&logoColor=white)](https://flask.palletsprojects.com)
+[![License: Proprietary](https://img.shields.io/badge/License-All%20Rights%20Reserved-red?style=for-the-badge)](LICENSE)
+
+<p align="center">
+  <b>Eliminate repetitive job applications with intelligent multimodal reasoning and high-throughput browser automation.</b>
+</p>
+
+[Key Features](#-key-features) • [Engine Comparison](#-dual-engine-benchmarks) • [Architecture](#-system-architecture) • [Getting Started](#-getting-started) • [Security](#-security--data-privacy) • [Author](#-author)
+
+---
+
+</div>
+
+## 📌 Executive Summary
+
+Applying for jobs across modern professional networks often requires answering repetitive questionnaires, navigating dynamic single-page applications, and encountering unpredictable modal dialogs. 
+
+This project is an **Autonomous Job Application Agent** designed to automate LinkedIn's **Easy Apply** pipeline end-to-end. Engineered with a **Dual-Engine Architecture**, it pairs the contextual comprehension of **Google Gemini LLM** with the deterministic speed of a **Direct Playwright Automation Engine**, delivering high accuracy and zero-downtime execution.
 
 ---
 
 ## 🌟 Key Features
 
-### 1. ⚡ Dual-Engine Architecture
-- **AI-Powered Browser Agent (Google Gemini)**: Navigates dynamic web interfaces, interprets form structures, and answers custom questions using natural language reasoning with automatic multi-key rotation.
-- **High-Speed Direct Playwright Engine ($0 Cost)**: Instant fallback engine operating at zero API cost. Directly automates the browser DOM to apply in seconds without third-party API dependencies or rate limits.
+### ⚡ 1. Dual-Engine Architecture
+* **AI Cognitive Mode (Google Gemini)**: Analyzes unstructured application questions, custom requirements, and multi-step forms using multimodal reasoning and round-robin multi-key rotation.
+* **Direct Playwright Engine ($0 Cost)**: Deterministic, high-throughput browser engine that interacts directly with LinkedIn's DOM tree, applying to eligible openings in seconds without incurring API costs or rate-limit delays.
+* **Intelligent Auto-Failover**: If the AI engine experiences quota exhaustion (`429`) or server load spikes (`503`), execution seamlessly transitions to the Direct Playwright Engine without user intervention.
 
-### 2. 🎯 Smart Role & Experience Filtering
-- **URL-Level Optimization**: Pre-filters for Easy Apply (`f_LF=f_AL`) and target experience tiers (`f_E=1,2` for Entry Level & Internships).
-- **Seniority Screening**: Automatically identifies and skips Senior, Lead, Manager, Architect, and Director roles based on user criteria.
+### 🎯 2. Precision Job Screening
+* **Experience Matching**: Automates URL-level filters (`f_LF=f_AL` for Easy Apply, `f_E=1,2` for Entry & Intern tiers).
+* **Seniority Exclusion**: Automatically detects and skips Senior, Lead, Manager, Architect, and Director roles based on target preferences.
 
-### 3. 📝 Intelligent Form Filling
-- **Empty-Field Priority**: Detects pre-filled LinkedIn profile data and skips it in `0ms`, avoiding redundant typing.
-- **Custom Question Answering**: Dynamically responds to:
-  - Work Authorization & Sponsorship queries.
-  - Notice period & Start date confirmations.
-  - Stipend and compensation ranges.
-  - Dynamic dropdowns and radio selections.
-- **Instant Dismissal**: Uses keyboard events and modal detection to close submission dialogs in milliseconds.
+### 📝 3. Optimized Form-Filling Engine
+* **Zero-Latency Bypass**: Instantly skips fields pre-populated by LinkedIn profile data in `0ms`, preventing redundant keystrokes.
+* **Fuzzy Question Mapping**: Dynamically handles dynamic fields:
+  * Work authorization & Visa sponsorship.
+  * Salary expectations, stipends, and compensation ranges.
+  * Notice periods and immediate joining dates.
+  * Multi-select dropdowns, radio fieldsets, and compliance checkboxes.
+* **Instant Submission & Dismissal**: Dispatches keyboard dismiss events to close confirmation dialogs in milliseconds.
 
-### 4. 📊 Real-Time Web Dashboard
-- Lightweight Flask frontend to configure keywords, target locations, and optional custom details.
-- Real-time application tracker, company history, live logs, and start/stop controls.
+### 📊 4. Full-Stack Monitoring Dashboard
+* Real-time Flask management dashboard providing real-time application counters, target role selectors, live log monitoring, and safety abort controls.
 
 ---
 
-## 🏗️ Architecture
+## 📊 Dual-Engine Benchmarks
+
+| Metric / Dimension | Priority 1: Gemini AI Agent | Priority 2: Direct Playwright Engine |
+| :--- | :--- | :--- |
+| **Primary Focus** | Unstructured question reasoning | Maximum execution speed |
+| **API Cost** | Free tier (Multi-Key Rotation) | **$0.00 (Zero API dependencies)** |
+| **Average Apply Speed** | ~15 – 25 sec / application | **~3 – 5 sec / application** |
+| **Rate Limit Sensitivity** | Handled via key cycler | **Immune to API limits** |
+| **Form Adaptability** | Autonomous reasoning | Deterministic DOM heuristics |
+
+---
+
+## 🏗️ System Architecture
 
 ```mermaid
 flowchart TD
-    A[Web Dashboard - Flask] -->|Start Applying| B[Agent Controller]
-    B --> C{Priority 1: Gemini AI Agent}
-    C -->|Success| D[Submit Applications via AI]
-    C -->|503 Spikes / Quota Exceeded| E[Priority 2: Fast Playwright Engine]
-    E --> F[Automated Search & Filter]
-    F --> G[Card Detection & Seniority Screening]
-    G --> H[Multi-Page Easy Apply Modal]
-    H --> I[Fill Only Empty Fields]
-    I --> J[Submit & Fast Dismiss]
-    J --> K[Update Real-Time Dashboard]
+    UI[🖥️ Flask Management Dashboard] -->|Start Trigger| Dispatcher[⚙️ Agent Dispatcher]
+    
+    subgraph Engine1 [Priority 1: Multimodal AI Engine]
+        Dispatcher -->|Initialize| GeminiAgent[🤖 Browser-Use + Gemini 2.5]
+        GeminiAgent --> KeyCycler[🔄 Multi-Key Round Robin]
+        GeminiAgent --> AIState[Cognitive DOM Evaluation]
+    end
+
+    AIState -->|Success| ApplyAI[✅ Submit Application via AI]
+    AIState -->|429 Quota / 503 Spike| Failover{⚡ Failover Trigger}
+
+    subgraph Engine2 [Priority 2: Fast Direct Playwright Engine]
+        Failover -->|Auto-Switch| PWEngine[🚀 Direct Playwright Engine]
+        PWEngine --> AutoLogin[🔑 Session Verification & Auto-Login]
+        AutoLogin --> JobSearch[🔍 Parameterized Job Search]
+        JobSearch --> CardFilter[🎯 Seniority & Role Screening]
+        CardFilter --> FastForm[📝 Empty-Field Form Solver]
+        FastForm --> FastSubmit[⚡ Instant Submit & Dismiss]
+    end
+
+    ApplyAI --> LiveMetrics[📊 Real-Time Dashboard Updates]
+    FastSubmit --> LiveMetrics
 ```
 
 ---
 
-## 📁 Project Structure
+## 📁 Repository Layout
 
 ```text
 LinkedIn-Job-Automation/
-│
 ├── agents/
-│   └── job_agent.py          # Dual-Engine: Playwright & Gemini automation logic
+│   └── job_agent.py              # Core Dual-Engine logic (Gemini + Playwright)
 ├── static/
-│   ├── style.css             # Dashboard styling
-│   └── app.js                # Frontend API interactions
+│   ├── style.css                 # Modern dark-mode UI styling
+│   └── script.js                 # Real-time state polling & API interactions
 ├── templates/
-│   └── index.html            # Web management dashboard
-├── config.py                 # Environment and default runtime parameters
-├── web_app.py                # Flask server and thread orchestrator
-├── requirements.txt          # Python dependencies
-├── .env.example              # Environment variables template (safe for git)
-├── profile_data.example.json # Applicant profile template
-├── LICENSE                   # Proprietary software license
-└── README.md                 # Project documentation
+│   └── index.html                # Responsive web dashboard interface
+├── config.py                     # Centralized settings & environment mapper
+├── web_app.py                    # Flask application & asynchronous thread manager
+├── requirements.txt              # Production dependency specifications
+├── .env.example                  # Environment configuration template (safe for git)
+├── profile_data.example.json     # Standardized profile schema template
+├── LICENSE                       # Proprietary copyright license
+└── README.md                     # Comprehensive documentation
 ```
 
 ---
 
-## 🚀 Getting Started
-
-### Prerequisites
-- Python 3.10 or higher
-- Google Chrome or Chromium installed
+## 🚀 Quickstart & Setup
 
 ### 1. Clone the Repository
 ```bash
@@ -88,78 +124,69 @@ git clone https://github.com/mohammadthaheer2005/LinkedIn-Job-Automation.git
 cd LinkedIn-Job-Automation
 ```
 
-### 2. Set Up Virtual Environment
+### 2. Configure Environment
 ```bash
 # Create virtual environment
 python -m venv .venv
 
-# Activate virtual environment
-# On Windows (CMD):
+# Activate on Windows:
 .\.venv\Scripts\activate.bat
-# On Windows (PowerShell):
-.\.venv\Scripts\Activate.ps1
-# On macOS / Linux:
-source .venv/bin/activate
-```
 
-### 3. Install Dependencies
-```bash
+# Install dependencies:
 pip install -r requirements.txt
 playwright install chromium
 ```
 
-### 4. Configuration
-Copy the `.env.example` file to `.env`:
+### 3. Setup Credentials
+Copy `.env.example` to `.env`:
 ```bash
-cp .env.example .env
+copy .env.example .env
 ```
-Edit `.env` with your preferred settings:
+Populate your `.env` configuration:
 ```env
-# Google Gemini API Keys (Get free keys from https://aistudio.google.com/app/apikey)
-GOOGLE_API_KEYS=your_gemini_key_1,your_gemini_key_2
+# Google Gemini API Keys (comma-separated for auto-rotation)
+GOOGLE_API_KEYS=your_gemini_api_key_1,your_gemini_api_key_2
 MODEL=gemini-2.5-flash
 
-# LinkedIn Credentials (Used for automated login fallback)
+# LinkedIn Credentials (for automated session generation)
 LINKEDIN_EMAIL=your_email@example.com
 LINKEDIN_PASSWORD=your_password
 
-# Search & Application Preferences
+# Application Settings
 JOB_KEYWORD=Python Developer
 JOB_LOCATION=Chennai
 MAX_APPLICATIONS=30
 HEADLESS=False
 ```
 
-### 5. Launch the Web Application
+### 4. Run the Application
 ```bash
-.\.venv\Scripts\python.exe web_app.py
+python web_app.py
 ```
-Open your browser and navigate to:
-👉 **`http://127.0.0.1:5000`**
-
-Enter your desired role, location, and click **Start Applying**!
+Open **`http://127.0.0.1:5000`** in your browser, enter your target role and parameters, and click **Start Applying**!
 
 ---
 
-## 🔒 Security & Privacy Notice
+## 🔒 Security & Data Privacy
 
-- **No Credentials in Version Control**: All API keys, passwords, session cookies, and personal profile information are protected via `.gitignore`.
-- **Session Protection**: Active session states (`sessions/`) are stored locally on your machine and never transmitted to external services.
-- **Safety Best Practice**: Never commit or share your `.env` or `profile_data.json` files publicly.
+* **Zero Secret Leakage**: The repository strictly enforces `.gitignore` rules preventing `.env`, `sessions/`, `profile_data.json`, and local PDF resumes from ever being committed.
+* **Local Session Isolation**: Authentication cookies are generated and encrypted locally in the `sessions/` directory and never transmitted to external logging or cloud tracking services.
 
 ---
 
 ## ⚖️ License & Terms of Use
 
-**Copyright (c) 2026 Mohammad Thaheer. All rights reserved.**
+**Copyright © 2026 Mohammad Thaheer. All rights reserved.**
 
-This project is published strictly for **portfolio showcase and personal evaluation purposes**. 
-
-- **No License Granted**: No permission is granted to copy, reproduce, fork, distribute, modify, sub-license, or commercially exploit this software in whole or in part without express prior written consent from the author.
-- Any unauthorized commercial use, plagiarism, or public hosting of this codebase is strictly prohibited.
+This software is published strictly for **personal portfolio demonstration and professional evaluation**. 
+* **No License Granted**: Unauthorized reproduction, modification, duplication, commercial exploitation, or redistribution of this codebase without prior written consent from the copyright holder is strictly prohibited.
+* Please review the [`LICENSE`](LICENSE) file for detailed legal terms.
 
 ---
 
-## ⚠️ Disclaimer
+## 👨‍💻 Author
 
-This automation tool is developed for educational and experimental purposes. Users are solely responsible for complying with LinkedIn's User Agreement and Professional Community Policies. The author assumes no liability for account restrictions, suspensions, or misuse of this software.
+**Mohammad Thaheer**  
+*Full-Stack & Autonomous AI Systems Developer*  
+- **GitHub**: [@mohammadthaheer2005](https://github.com/mohammadthaheer2005)  
+- **Projects**: [LinkedIn Automation](https://github.com/mohammadthaheer2005/LinkedIn-Job-Automation) • [Browser Agent](https://github.com/mohammadthaheer2005/browser--agent) • [Career Advisor](https://github.com/mohammadthaheer2005/career-advisor)

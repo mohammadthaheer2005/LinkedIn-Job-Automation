@@ -84,7 +84,7 @@ LinkedIn-Job-Automation/
 
 ### 1. Clone the Repository
 ```bash
-git clone https://github.com/YOUR_USERNAME/LinkedIn-Job-Automation.git
+git clone https://github.com/mohammadthaheer2005/LinkedIn-Job-Automation.git
 cd LinkedIn-Job-Automation
 ```
 
